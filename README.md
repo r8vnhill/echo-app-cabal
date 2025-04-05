@@ -2,12 +2,15 @@
 
 > A simple Haskell project created with `cabal init`, showcasing a clean structure with library, executable, and test suite components.
 
-This repository accompanies the lesson **"Creating a Basic Project in Haskell with Cabal"** from the [Software Library Design and Implementation](https://dibs.pages.dev/docs/build-systems/init/cabal/) course.
+This repository accompanies **two lessons** from the [Software Library Design and Implementation](https://dibs.pages.dev) course:
 
-- **Lesson Language:** Spanish
+- 📘 [Creating a Basic Project in Haskell with Cabal](https://dibs.pages.dev/docs/build-systems/init/cabal/)
+- 📘 [Structuring a Haskell Project with Multiple Modules](https://dibs.pages.dev/docs/build-systems/basic-config/cabal/)
+
+- **Lesson Language:** Spanish  
 - **Code and Repo Language:** English (to improve accessibility)
 
-The goal is to provide a minimal but well-structured foundation for learning how to organize and build Haskell projects using Cabal and GHCup.
+The goal is to provide a minimal but well-structured foundation for learning how to organize and build Haskell projects using Cabal and GHCup, with a focus on clean architecture and modularity.
 
 ## 📦 Project Structure
 
@@ -16,7 +19,7 @@ echo-app-cabal/
 ├── app/                 # Executable entry point
 │   └── Main.hs
 ├── src-lib/             # Library source code
-│   └── MyLib.hs
+│   └── Echo.hs
 ├── test/                # Test suite
 │   └── Main.hs
 ├── echo-app-cabal.cabal # Project definition
@@ -47,18 +50,20 @@ ghcup install ghc
 ghcup install cabal
 ```
 
-On Windows, you may need to manually add GHC's `bin` directory to your `PATH`. The lesson explains how to do this with PowerShell.
+On Windows, you may need to manually add GHC's `bin` directory to your `PATH`. The lessons explain how to do this with PowerShell.
 
 ### 3. Run the app
 
 ```bash
-cabal run
+cabal run echo-app-cabal -- "Hi Barbie!" "Hi Ken!" "Do you guys ever think about dying?"
 ```
 
 Expected output:
 
 ```plaintext
-I do not belong to the world. That is the limit, the boundary between all and self.
+Hi Barbie!
+Hi Ken!
+Do you guys ever think about dying?
 ```
 
 ## 🧪 Running Tests
@@ -67,17 +72,17 @@ I do not belong to the world. That is the limit, the boundary between all and se
 cabal test
 ```
 
-## ✍️ About the Lesson
+## ✍️ About the Lessons
 
-This repository was created interactively using `cabal init`, explaining each option and choice along the way—from naming, licensing, and versioning to directory structure and language extensions.
+This project was initialized interactively using `cabal init`, with both lessons guiding you through:
 
-The lesson emphasizes:
+- Choosing project layout and `.cabal` specification
+- Separating reusable logic into a library (`src-lib`)
+- Configuring an executable to consume the library
+- Passing arguments from the terminal
+- Preparing for testing by including a test suite early
 
-- Clean separation between app and library logic
-- Declarative configuration using `.cabal` files
-- Choosing modern standards like `GHC2021`
-- Integrating a test suite from the beginning
-- Understanding the *why* behind each setting
+The lessons go beyond just running commands: they explain the reasoning behind each choice and how to make your project modular and extensible from the start.
 
 ## 📚 References
 

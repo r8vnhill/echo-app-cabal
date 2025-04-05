@@ -1,4 +1,11 @@
 module Main where
 
+import Echo (echoMessage)
+import System.Environment (getArgs)
+import Control.Monad (forM_)
+
 main :: IO ()
-main = putStrLn "I do not belong to the world. That is the limit, the boundary between all and self."
+main = do
+    messages <- getArgs
+    forM_ messages $ \msg -> do
+        echoMessage msg
